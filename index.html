@@ -1,0 +1,68 @@
+<script>
+// 0 = Rock // 1 = Paper // 2 = Scissors //
+
+let playerSelection;
+let input;
+let computerSelection;
+
+game();
+
+//-- Functions below here.
+
+function computerPlay() {
+  let computerOptions = ["Rock", "Paper", "Scissors"];
+  const computerSelection = Math.floor(Math.random() * computerOptions.length);
+  return computerSelection;
+}
+
+function choiceRock() {
+  if(computerSelection == 0){
+    alert ("Tie game.");}
+  else if(computerSelection == 1){
+    alert ("You lose. Paper beats Rock.");}
+  else
+    {alert("You win. Rock beats Scissors.");}
+  }
+
+  function choicePaper() {
+  if(computerSelection == 0){
+    alert ("You win. Paper beats Rock.");}
+  else if(computerSelection == 1){
+    alert ("Tie game.");}
+  else
+    {alert("You lose. Scissors beat Paper.");}
+  }
+
+  function choiceScissors() {
+  if(computerSelection == 0){
+    alert ("You lose. Rock beats Scissors.");}
+  else if(computerSelection == 1){
+    alert ("You win. Scissors beat Paper.");}
+  else
+    {alert("Tie game.");}
+  }
+
+function playRound() {
+  input = (prompt("Your turn:"));
+  playerSelection = input.toUpperCase();
+
+  if(playerSelection == "ROCK"){
+    choiceRock();}
+  else if(playerSelection == "PAPER"){
+    choicePaper();}
+  else if(playerSelection == "SCISSORS"){
+    choiceScissors();}
+  else {
+      alert("Wrong input.");
+      playRound();}
+  }
+
+function game() {
+  let i;
+  for (i = 0; i < 5; i++) {
+    computerSelection = computerPlay()
+    playRound(playerSelection, computerSelection);
+    console.log(i+1, "Computer choose " + computerSelection);
+  }
+}
+</script>
